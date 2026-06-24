@@ -24,4 +24,4 @@ jobs:
           APP_ENV: "UAT"
 
       - name: use job level env variable
-        run: echo "Job level environment variable is $ENV1"
+        run: echo "Job level environment variable is $ENV2, workflow level environment variable is $ENV1"
