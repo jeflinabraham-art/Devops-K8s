@@ -5,19 +5,21 @@ on:
     branches:
       - main
 
+env:
+  ENV1: "workflow-level-env"
 jobs:
   build:
     runs-on: ubuntu-latest
 
     env:
-      ENV1: "job level env variable"
+      ENV2: "job-level-env"
 
     steps: 
       - name: say hello
         run: echo "Hello, World!"
 
       - name: use env variables
-        run: echo "Application Environment is $APP_ENV, password is ${{ secrets.APP_PASSWORD }}"
+        run: echo "Application Environment is $APP_ENV (step-level-env), password is ${{ secrets.APP_PASSWORD }}"
         env:
           APP_ENV: "UAT"
 
