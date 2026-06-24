@@ -14,6 +14,6 @@ jobs:
         run: echo "Hello, World!"
 
       - name: use env variables
-        run: echo "Application Environment is $APP_ENV"
+        run: echo "Application Environment is $APP_ENV, password is {{ secrets.APP_PASSWORD }}"
         env:
           APP_ENV: "UAT"
