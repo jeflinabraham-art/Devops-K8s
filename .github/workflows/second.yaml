@@ -18,10 +18,19 @@ jobs:
       - name: say hello
         run: echo "Hello, World!"
 
-      - name: use env variables
+      - name: use env and secrets
         run: echo "Application Environment is $APP_ENV (step-level-env), password is ${{ secrets.APP_PASSWORD }}"
         env:
           APP_ENV: "UAT"
 
-      - name: use job level env variable
+      - name: use env variables
         run: echo "Job level environment variable is $ENV2, workflow level environment variable is $ENV1"
+
+      - name: create a file
+        run: echo "This is a test file" > test.txt
+
+      - name: upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-artifact
+          path: .
