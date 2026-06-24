@@ -9,6 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      ENV1: "job level env variable"
+
     steps: 
       - name: say hello
         run: echo "Hello, World!"
@@ -17,3 +20,6 @@ jobs:
         run: echo "Application Environment is $APP_ENV, password is ${{ secrets.APP_PASSWORD }}"
         env:
           APP_ENV: "UAT"
+
+      - name: use job level env variable
+        run: echo "Job level environment variable is $ENV1"
